@@ -29,7 +29,7 @@ int Example::var3 = 0; //inny sposób inicjalizacji zmiennej statycznej
 
 ### biblioteka `std::` :
 
-#### `vector<T>` :
+#### `std::vector<T>` :
 
 ```cpp
 #include <vector>
@@ -40,6 +40,7 @@ v.assign()  // Usuwa wszystkie istniejące elementy z kontenera, a następnie ko
 v.swap()	// Kontenery vector zamieniają się posiadanymi danymi.
 v.insert()	// Wstawia jeden element lub wiele elementów do kontenera vector na określonej pozycji.
 v.push_back()	// Dodaje nowy element na końcu kontenera vector.
+v.emplace_back()    // Przekazuje argumenty do konstuktura klasy T i dodaje nowy element na końcu kontenera vector.
 
 v.clear()	// Usuwa wszystkie elementy z kontenera vector.
 v.erase()	// Usuwa jeden element lub wiele elementów z kontenera vector występujących na podanej pozycji lub w podanym zakresie.
@@ -62,3 +63,52 @@ v.empty()	// Sprawdza czy kontener jest pusty.
 v.max_size()	// Maksymalna możliwa długość tablicy kontenera » standard C++ ♦ vector, wyrażona w liczbie elementów.
 v.size()	// Zwraca liczbę elementów znajdujących się aktualnie w kontenerze.
 ```
+
+#### `std::string` :
+
+```cpp
+#include <string>
+
+std::string s;
+
+s.length()  // Zwraca długość tekstu.
+s.reserve() // Zmienia rozmiary bufora.
+s.resize()  // Zmienia rozmiar tablicy - w razie potrzeby wypełnia nowe miejsca podanym znakiem.
+s.c_str()	// Zwraca łańcuch znaków tylko do odczytu w standardzie języka C.
+s.find()	// Wyszukuje pierwszego wystąpienia danego łańcucha znaków.
+s.substr()	// Zwraca podciąg łańcucha znaków.
+s.erase()	// Usuwa część stringa.
+s.insert()	// Wstawia znaki do aktualnego łańcucha znaków.
+s.replace()	// Zamienia część znaków na inne.
+```
+
+#### `std::list` :
+
+```cpp
+#include <list>
+
+std::list<T> l;
+
+l.insert()    // 
+l.emplace()   // 
+l.push_back() // 
+l.emplace_back()  // 
+l.push_front()    // 
+l.emplace_front() // 
+
+l.clear() // 
+l.erase() // 
+l.pop_back()  // 
+l.pop_front() // 
+ 
+l.resize() // 
+l.swap() // 
+
+l.merge() // 
+l.splice() // 
+l.reverse() // 
+l.unique() // 
+l.sort() // 
+```
+
+#### `std::map` :
