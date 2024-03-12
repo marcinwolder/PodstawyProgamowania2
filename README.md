@@ -89,26 +89,48 @@ s.replace()	// Zamienia część znaków na inne.
 
 std::list<T> l;
 
-l.insert()    // 
-l.emplace()   // 
-l.push_back() // 
-l.emplace_back()  // 
-l.push_front()    // 
-l.emplace_front() // 
+l.insert()  // 
+l.emplace() // 
+l.push_back()   // 
+l.emplace_back()    // 
+l.push_front()  // 
+l.emplace_front()   // 
 
-l.clear() // 
-l.erase() // 
-l.pop_back()  // 
-l.pop_front() // 
+l.clear()   // 
+l.erase()   // 
+l.pop_back()     // 
+l.pop_front()   // 
  
-l.resize() // 
-l.swap() // 
+l.resize()  // 
+l.swap()    // 
 
-l.merge() // 
-l.splice() // 
+l.merge()   // 
+l.splice()  // 
 l.reverse() // 
-l.unique() // 
-l.sort() // 
+l.unique()  // 
+l.sort()    // 
 ```
 
 #### `std::map` :
+
+```cpp
+#include <map>
+
+std::map<T,G> m;
+
+m.insert(std::map<T,G>::value_type(val1,val2));
+m.insert(std::pair<T,G>(val1,val2));
+m.emplace(val1,val2);
+```
+
+#### `std::set` :
+
+```cpp
+#include <set>
+
+std::set<T> s;
+
+s.insert()  // Dodaje element.
+s.empty()   // Testuje czy zbiór jest pusty.
+s.find()    // Znajduje element w zbiorze.
+```
