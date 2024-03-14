@@ -21,6 +21,9 @@ class Example: public Example_Parent { //dziedziczenie
     ~Example(){
         //destruktor
     }
+    int getVar1() const { //zmienne które nie powinny zostać zmieniane powinny być zwracane jako const
+        return var1;
+    }
 }
 
 int Example::var3 = 0; //inny sposób inicjalizacji zmiennej statycznej
