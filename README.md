@@ -137,3 +137,7 @@ s.insert()  // Dodaje element.
 s.empty()   // Testuje czy zbiór jest pusty.
 s.find()    // Znajduje element w zbiorze.
 ```
+
+#### `std::stringstream`
+#### `std::lower_bound`
+#### `std::upper_bound`
