@@ -11,17 +11,25 @@ class Example: public Example_Parent { //dziedziczenie
     int var2; //zmienna publiczna
     inline static int var3 = 0; //zmienna statycznna
     const int var4; //zmienna stała
+    mutable int var5; //zmienna modyfikowalna
 
     Example(int var, int &arr): arr(arr), var4(var) { //lista inicjacyjna - definicja zmiennych statycznych, stałych, referencji i konstruktorów
         //konstruktor
     }
     Example(int var1, int var2, int &arr): Example(var1+var2, arr) {
         //konstruktor z przekazaniem do konstruktora wyżej
-    } 
+    }
+    Example(const Example& var) {
+        //konstruktor kopiujący
+    }
+    Example(Example&& var) {
+        //konstruktor przenoszący
+    }
     ~Example(){
         //destruktor
     }
-    int getVar1() const { //zmienne które nie powinny zostać zmieniane powinny być zwracane jako const
+    int getVar1() const { //funkcja const - nie zmieniająca wartości w klasie
+        this->var5 = 7; //jedyna dozwolona zmiana w funkcji const to zmiana na wartości `mutable`
         return var1;
     }
 }
@@ -92,26 +100,26 @@ s.replace()	// Zamienia część znaków na inne.
 
 std::list<T> l;
 
-l.insert()  // 
-l.emplace() // 
-l.push_back()   // 
-l.emplace_back()    // 
-l.push_front()  // 
-l.emplace_front()   // 
+l.insert()  //
+l.emplace() //
+l.push_back()   //
+l.emplace_back()    //
+l.push_front()  //
+l.emplace_front()   //
 
-l.clear()   // 
-l.erase()   // 
-l.pop_back()     // 
-l.pop_front()   // 
- 
-l.resize()  // 
-l.swap()    // 
+l.clear()   //
+l.erase()   //
+l.pop_back()     //
+l.pop_front()   //
 
-l.merge()   // 
-l.splice()  // 
-l.reverse() // 
-l.unique()  // 
-l.sort()    // 
+l.resize()  //
+l.swap()    //
+
+l.merge()   //
+l.splice()  //
+l.reverse() //
+l.unique()  //
+l.sort()    //
 ```
 
 #### `std::map` :
@@ -139,5 +147,7 @@ s.find()    // Znajduje element w zbiorze.
 ```
 
 #### `std::stringstream`
+
 #### `std::lower_bound`
+
 #### `std::upper_bound`
