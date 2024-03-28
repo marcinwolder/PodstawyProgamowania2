@@ -71,6 +71,13 @@ Class Class(Class&& c) noexcept {}; // konstruktor przenoszący
 virtual ~Class(){}                  // destruktor wirtualny - pozwala na wykonanie się poprawnego destrukotra klas dziedziczących
 ```
 
+##### kolejność wywołania konstruktorów:
+1. konstruktor klasy bazowej
+1. konstruktor klasy pochodnej
+##### kolejność wywołania destruktorów:
+1. konstruktor klasy pochodnej
+1. konstruktor klasy bazowej
+
 #### operatory:
 ```cpp
 T& T::operator=(const T&){}; // przypisania
