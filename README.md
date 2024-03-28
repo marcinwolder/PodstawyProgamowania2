@@ -76,11 +76,11 @@ int Example::var3 = 0; //inny sposób inicjalizacji zmiennej statycznej
 
 #### konstruktory:
 ```cpp
-Class(){};                          // konstruktor bezargumentowy
-Class Class(const Class& c){};      // konstruktor kopiujący
-Class Class(Class&& c) noexcept {}; // konstruktor przenoszący
-~Class(){}                          // destruktor
-virtual ~Class(){}                  // destruktor wirtualny - pozwala na wykonanie się poprawnego destrukotra klas dziedziczących
+Class(){};                      // konstruktor bezargumentowy
+Class(const Class& c){};        // konstruktor kopiujący
+Class(Class&& c) noexcept {};   // konstruktor przenoszący
+~Class(){}                      // destruktor
+virtual ~Class(){}              // destruktor wirtualny - pozwala na wykonanie się poprawnego destrukotra klas dziedziczących
 ```
 
 ##### kolejność wywołania konstruktorów:
