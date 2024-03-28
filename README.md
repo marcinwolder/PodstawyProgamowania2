@@ -5,29 +5,29 @@
 #### zmiennych:
 
 ```cpp
-const Type var;      // brak możliwości zmiany wartości  
-mutable Type var;    // możliwość zmiany w funkcjach *const*  
-static Type var;     // zmienna wspólna dla całej klasy  
-inline Type var = 10;     // inicjalizacja w miejscu  
+const Type var;        // brak możliwości zmiany wartości  
+mutable Type var;      // możliwość zmiany w funkcjach *const*  
+static Type var;       // zmienna wspólna dla całej klasy  
+inline Type var = 10;  // inicjalizacja w miejscu  
 ```
 
 #### motod:
 ```cpp
 [[nodiscard]] Type func() const {}; // funkcja, nie zmieniająca wartości klasy
-virtual Type func()=0; // funkcja, która musi zostać przedefiniowana w klasach pochodnych
-virtual Type func(){}; // funkcja, która może zostać przedefiniowana w klasach pochodnych
-Type func() override {}; // funkcja, która musi zostać zdefiniowana w klasie bazowej
-explicit Type func(){}; // funkcja, bez niejawnej tranformacji argumentów (np. string -> char*)
-Type(Type&& var) noexcept {}; // przy konstruktorze przenoszącym
-friend T func(){}; // zaprzyjaźniona metoda (globalnie lub zakresowo) ma dostęp do składowych private i protected
+virtual Type func()=0;              // funkcja, która musi zostać przedefiniowana w klasach pochodnych
+virtual Type func(){};              // funkcja, która może zostać przedefiniowana w klasach pochodnych
+Type func() override {};            // funkcja, która musi zostać zdefiniowana w klasie bazowej
+explicit Type func(){};             // funkcja, bez niejawnej tranformacji argumentów (np. string -> char*)
+Type(Type&& var) noexcept {};       // przy konstruktorze przenoszącym
+friend T func(){};                  // zaprzyjaźniona metoda (globalnie lub zakresowo) ma dostęp do składowych private i protected
 ```
 #### klas:
 ```cpp
-class B: public A {}; // dziedziczenie publiczne
-class B: protected A {}; // dziedziczenie chronione
-class B: private A {}; // dziedziczenie prywatne
-class B: virtual A {}; // dziedziczenie wirtualne - wartości A są wspólne dla wszystkich dziedziczących
-class A final {}; // klasa finalna - brak możliwości dziedziczenia tej klasy
+class B: public A {};       // dziedziczenie publiczne
+class B: protected A {};    // dziedziczenie chronione
+class B: private A {};      // dziedziczenie prywatne
+class B: virtual A {};      // dziedziczenie wirtualne - wartości A są wspólne dla wszystkich dziedziczących
+class A final {};           // klasa finalna - brak możliwości dziedziczenia tej klasy
 ```
 
 ### `class` :
@@ -64,23 +64,23 @@ int Example::var3 = 0; //inny sposób inicjalizacji zmiennej statycznej
 
 #### konstruktory:
 ```cpp
-Class(){}; // konstruktor bezargumentowy
-Class Class(const Class& c){}; // konstruktor kopiujący
+Class(){};                          // konstruktor bezargumentowy
+Class Class(const Class& c){};      // konstruktor kopiujący
 Class Class(Class&& c) noexcept {}; // konstruktor przenoszący
-~Class(){} // destruktor
-virtual ~Class(){} // destruktor wirtualny - pozwala na wykonanie się poprawnego destrukotra klas dziedziczących
+~Class(){}                          // destruktor
+virtual ~Class(){}                  // destruktor wirtualny - pozwala na wykonanie się poprawnego destrukotra klas dziedziczących
 ```
 
 #### operatory:
 ```cpp
 T& T::operator=(const T&){}; // przypisania
-T operator()(args){} // operator wywołania funkcyjnego
-T operator[](int){} // operator dostępu indeksowego
-T& operator++(){} // operator pre-inkrementacji
-T operator++(int){} // operator post-inkrementacji
+T operator()(args){}         // operator wywołania funkcyjnego
+T operator[](int){}          // operator dostępu indeksowego
+T& operator++(){}            // operator pre-inkrementacji
+T operator++(int){}          // operator post-inkrementacji
 
 friend ostream& operator<<(ostream& os, const T&){}; // operator wyjścia na stumień
-friend istream& operator>>(istream& is, T&){}; // operator wejścia ze stumienia
+friend istream& operator>>(istream& is, T&){};       // operator wejścia ze stumienia
 ```
 
 ### biblioteka `std::` :
