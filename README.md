@@ -1,5 +1,35 @@
 # Podstawy programowania 2 (C++)
 
+### modyfikatory:
+
+#### zmiennych:
+
+```cpp
+const Type var;      // brak możliwości zmiany wartości  
+mutable Type var;    // możliwość zmiany w funkcjach *const*  
+static Type var;     // zmienna wspólna dla całej klasy  
+inline Type var = 10;     // inicjalizacja w miejscu  
+```
+
+#### motod:
+```cpp
+[[nodiscard]] Type func() const {}; // funkcja, nie zmieniająca wartości klasy
+virtual Type func()=0; // funkcja, która musi zostać przedefiniowana w klasach pochodnych
+virtual Type func(){}; // funkcja, która może zostać przedefiniowana w klasach pochodnych
+Type func() override {}; // funkcja, która musi zostać zdefiniowana w klasie bazowej
+explicit Type func(){}; // funkcja, bez niejawnej tranformacji argumentów (np. string -> char*)
+Type(Type&& var) noexcept {}; // przy konstruktorze przenoszącym
+friend T func(){}; // zaprzyjaźniona metoda (globalnie lub zakresowo) ma dostęp do składowych private i protected
+```
+#### klas:
+```cpp
+class B: public A {}; // dziedziczenie publiczne
+class B: protected A {}; // dziedziczenie chronione
+class B: private A {}; // dziedziczenie prywatne
+class B: virtual A {}; // dziedziczenie wirtualne - wartości A są wspólne dla wszystkich dziedziczących
+class A final {}; // klasa finalna - brak możliwości dziedziczenia tej klasy
+```
+
 ### `class` :
 
 ```cpp
