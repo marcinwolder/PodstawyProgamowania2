@@ -1,4 +1,16 @@
-# Podstawy programowania 2 (C++)
+# PodstawyProgramowania2 (C++)
+
+<img src="https://gitlab.com/marcinwolder/marcinwolder/-/raw/main/img/AGH-LOGO-ONLY.png" width="100px" align="left"></img>
+
+<div>
+  <br/>
+  Repository for the subject "Podstawy Programowania 2" <br/>
+  Lecturer: <b>Grzegorz Bazior</b>
+</div>
+<br/>
+<br/>
+
+---
 
 ### modyfikatory:
 
