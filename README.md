@@ -49,12 +49,6 @@ class Example: public Example_Parent { //dziedziczenie
     Example(int var1, int var2, int &arr): Example(var1+var2, arr) {
         //konstruktor z przekazaniem do konstruktora wyżej
     }
-    Example(const Example& var) {
-        //konstruktor kopiujący
-    }
-    Example(Example&& var) {
-        //konstruktor przenoszący
-    }
     ~Example(){
         //destruktor
     }
@@ -66,6 +60,27 @@ class Example: public Example_Parent { //dziedziczenie
 
 int Example::var3 = 0; //inny sposób inicjalizacji zmiennej statycznej
 
+```
+
+#### konstruktory:
+```cpp
+Class(){}; // konstruktor bezargumentowy
+Class Class(const Class& c){}; // konstruktor kopiujący
+Class Class(Class&& c) noexcept {}; // konstruktor przenoszący
+~Class(){} // destruktor
+virtual ~Class(){} // destruktor wirtualny - pozwala na wykonanie się poprawnego destrukotra klas dziedziczących
+```
+
+#### operatory:
+```cpp
+T& T::operator=(const T&){}; // przypisania
+T operator()(args){} // operator wywołania funkcyjnego
+T operator[](int){} // operator dostępu indeksowego
+T& operator++(){} // operator pre-inkrementacji
+T operator++(int){} // operator post-inkrementacji
+
+friend ostream& operator<<(ostream& os, const T&){}; // operator wyjścia na stumień
+friend istream& operator>>(istream& is, T&){}; // operator wejścia ze stumienia
 ```
 
 ### biblioteka `std::` :
