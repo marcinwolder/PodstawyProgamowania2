@@ -89,10 +89,18 @@ virtual ~Class(){}              // destruktor wirtualny - pozwala na wykonanie s
 ##### kolejność wywołania destruktorów:
 1. konstruktor klasy pochodnej
 1. konstruktor klasy bazowej
+##### wywołanie metod z oraz bez `virtual`:
+np.: `A* a = new B` oraz `void f()`, `virtual void f2()` w każdej z klas
+
+1. (bez virtual): `a->f()` => `A::f()` (funkcja zależy od typu, działają cast'y)
+2. (z virtual): `a->f2()` => `B::f2()` (funkcja zależy od skonstruowanego obiektu)
+
+*tak samo działają destruktory - uruchamiają się albo od destruktora typu (bez virtual) albo od destruktora obiektu (z virtual)*
 
 #### operatory:
 ```cpp
-T& T::operator=(const T&){}; // przypisania
+T& T::operator=(const T&){...; return this*}; // przypisania kopującego
+T& T::operator=(T&&){...; return this*};      // przypisania przenoszącego
 T operator()(args){}         // operator wywołania funkcyjnego
 T operator[](int){}          // operator dostępu indeksowego
 T& operator++(){}            // operator pre-inkrementacji
