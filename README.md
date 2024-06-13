@@ -90,6 +90,7 @@ virtual ~Class(){}              // destruktor wirtualny - pozwala na wykonanie s
 1. konstruktor klasy pochodnej
 1. konstruktor klasy bazowej
 ##### wywołanie metod z oraz bez `virtual`:
+problem jedynie przy wskaźnikach `*`(też przy użyciu `dynamic_cast`), program zachowuje się normalnie gdy używamy typu `T`(też przy użyciu `static_cast`)
 np.: `A* a = new B` oraz `void f()`, `virtual void f2()` w każdej z klas
 
 1. (bez virtual): `a->f()` => `A::f()` (funkcja zależy od typu, działają cast'y)
