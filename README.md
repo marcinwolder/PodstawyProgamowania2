@@ -111,6 +111,42 @@ friend ostream& operator<<(ostream& os, const T&){}; // operator wyjścia na stu
 friend istream& operator>>(istream& is, T&){};       // operator wejścia ze stumienia
 ```
 
+### `<cstring>` :
+
+```cpp
+Copying:
+memcpy	Copy block of memory (function)
+memmove	Move block of memory (function)
+strcpy	Copy string (function)
+strncpy	Copy characters from string (function)
+
+Concatenation:
+strcat	Concatenate strings (function)
+strncat	Append characters from string (function)
+
+Comparison:
+memcmp	Compare two blocks of memory (function)
+strcmp	Compare two strings (function)
+strcoll	Compare two strings using locale (function)
+strncmp	Compare characters of two strings (function)
+strxfrm	Transform string using locale (function)
+
+Searching:
+memchr	Locate character in block of memory (function)
+strchr	Locate first occurrence of character in string (function)
+strcspn	Get span until character in string (function)
+strpbrk	Locate characters in string (function)
+strrchr	Locate last occurrence of character in string (function)
+strspn	Get span of character set in string (function)
+strstr	Locate substring (function)
+strtok	Split string into tokens (function)
+
+Other:
+memset	Fill block of memory (function)
+strerror	Get pointer to error message string (function)
+strlen	Get string length (function)
+```
+
 ### biblioteka `std::` :
 
 #### `std::vector<T>` :
@@ -174,6 +210,16 @@ s.substr()	// Zwraca podciąg łańcucha znaków.
 s.erase()	// Usuwa część stringa.
 s.insert()	// Wstawia znaki do aktualnego łańcucha znaków.
 s.replace()	// Zamienia część znaków na inne.
+
+stoi()	// Convert string to integer (function template)
+stol()	// Convert string to long int (function template)
+stoul()	// Convert string to unsigned integer (function template)
+stoll()	// Convert string to long long (function template)
+stoull()	// Convert string to unsigned long long (function template)
+stof()	// Convert string to float (function template)
+stod()	// Convert string to double (function template)
+stold()	// Convert string to long double (function template)
+to_string  // Convert numerical value to string (function)
 ```
 
 #### `std::list` :
@@ -205,18 +251,6 @@ l.unique()  //
 l.sort()    //
 ```
 
-#### `std::map` :
-
-```cpp
-#include <map>
-
-std::map<T,G> m;
-
-m.insert(std::map<T,G>::value_type(val1,val2));
-m.insert(std::pair<T,G>(val1,val2));
-m.emplace(val1,val2);
-```
-
 #### `std::set` :
 
 ```cpp
@@ -224,9 +258,57 @@ m.emplace(val1,val2);
 
 std::set<T> s;
 
-s.insert()  // Dodaje element.
-s.empty()   // Testuje czy zbiór jest pusty.
-s.find()    // Znajduje element w zbiorze.
+// Iterators:
+...
+
+// Capacity:
+empty()	// Test whether container is empty (public member function)
+size()	// Return container size (public member function)
+max_size()	// Return maximum size (public member function)
+
+// Modifiers:
+insert(const value_type& val) insert(iterator position, const value_type& val) insert(InputIterator first, InputIterator last)	// Insert element (public member function)
+erase(iterator position) erase(const value_type& val) erase(iterator first, iterator last)	// Erase elements (public member function)
+swap(set& x)	// Swap content (public member function)
+clear()	// Clear content (public member function)
+emplace(Args&&... args)	// Construct and insert element (public member function)
+emplace_hint(const_iterator position, Args&&... args)	// Construct and insert element with hint (public member function)
+
+// Operations:
+find(const value_type& val)	// Get iterator to element (public member function)
+count(const value_type& val)	// Count elements with a specific value (public member function)
+lower_bound(const value_type& val)	// Return iterator to lower bound (public member function)
+upper_bound(const value_type& val)	// Return iterator to upper bound (public member function)
+equal_range(const value_type& val)	// Get range of equal elements (public member function)
+```
+
+#### `std::map` :
+
+```cpp
+#include <map>
+
+std::map<T,G> m;
+
+// Iterators:
+...
+
+// Capacity:
+...
+
+// Modifiers:
+insert	Insert elements (public member function)
+erase	Erase elements (public member function)
+swap	Swap content (public member function)
+clear	Clear content (public member function)
+emplace	Construct and insert element (public member function)
+emplace_hint	Construct and insert element with hint (public member function)
+
+// Operations:
+find	Get iterator to element (public member function)
+count	Count elements with a specific key (public member function)
+lower_bound	Return iterator to lower bound (public member function)
+upper_bound	Return iterator to upper bound (public member function)
+equal_range	Get range of equal elements (public member function)
 ```
 
 #### `std::stringstream`
