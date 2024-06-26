@@ -120,32 +120,42 @@ friend istream& operator>>(istream& is, T&){};       // operator wejścia ze stu
 
 std::vector<T> v;
 
-v.assign()  // Usuwa wszystkie istniejące elementy z kontenera, a następnie kopiuje wskazane elementy do kontenera.
-v.swap()	// Kontenery vector zamieniają się posiadanymi danymi.
-v.insert()	// Wstawia jeden element lub wiele elementów do kontenera vector na określonej pozycji.
-v.push_back()	// Dodaje nowy element na końcu kontenera vector.
-v.emplace_back()    // Przekazuje argumenty do konstuktura klasy T i dodaje nowy element na końcu kontenera vector.
+// Iterators:
+begin() // Return iterator to beginning (public member function)
+end()	// Return iterator to end (public member function)
+rbegin()  // Return reverse iterator to reverse beginning (public member function)
+rend()	// Return reverse iterator to reverse end (public member function)
+cbegin()	// Return const_iterator to beginning (public member function)
+cend()	// Return const_iterator to end (public member function)
+crbegin()	// Return const_reverse_iterator to reverse beginning (public member function)
+crend()	// Return const_reverse_iterator to reverse end (public member function)
 
-v.clear()	// Usuwa wszystkie elementy z kontenera vector.
-v.erase()	// Usuwa jeden element lub wiele elementów z kontenera vector występujących na podanej pozycji lub w podanym zakresie.
-v.pop_back()	// Usuwa jeden element z kontenera vector, znajdujący się na jego końcu.
+// Capacity:
+size()	// Return size (public member function)
+max_size()	// Return maximum size (public member function)
+resize(size_type n, value_type val)	// Change size (public member function)
+capacity()	// Return size of allocated storage capacity (public member function)
+empty()	// Test whether vector is empty (public member function)
+reserve(size_type n)	// Request a change in capacity (public member function)
+shrink_to_fit()	// Shrink to fit (public member function)
 
-v.at()  // Zwraca referencję na element, który znajduje się na podanej pozycji w kontenerze » standard C++ ♦ vector.
-v.front()	// Zwraca referencję na pierwszy element w kontenerze.
-v.back()	// Zwraca referencję na ostatni element w kontenerze.
+// Element access:
+operator[](size_type n)	// Access element (public member function)
+at(size_type n)	// Access element (public member function)
+front()	// Access first element (public member function)
+back()	// Access last element (public member function)
+data()	// Access data (public member function)
 
-v.begin()	// Zwraca iterator wskazujący na pierwszy element.
-v.end()	// Zwraca iterator wskazujący na element będący za ostatnim elementem.
-v.rbegin()	// Zwraca iterator odwrotny wskazujący na ostatni element.
-v.rend()	// Zwraca iterator odwrotny wskazujący na element występujący bezpośrednio przed pierwszym elementem.
-
-v.reserve()	// Rezerwuje tyle miejsca w kontenerze, żeby pomieściła się wskazana liczba elementów bez konieczności wykonywania dodatkowej realokacji pamięci przy ich dodawaniu.
-v.resize()	// Ustawia nowy rozmiar kontenera vector.
-
-v.capacity()	// Zwraca maksymalną liczbę elementów jaką może pomieścić kontener bez wykonywania realokacji pamięci.
-v.empty()	// Sprawdza czy kontener jest pusty.
-v.max_size()	// Maksymalna możliwa długość tablicy kontenera » standard C++ ♦ vector, wyrażona w liczbie elementów.
-v.size()	// Zwraca liczbę elementów znajdujących się aktualnie w kontenerze.
+// Modifiers:
+assign(InputIterator first, InputIterator last) assign(size_type n, const value_type& val)	// Assign vector content (public member function)
+push_back(const value_type& val)	// Add element at the end (public member function)
+pop_back()	// Delete last element (public member function)
+insert(iterator position, const value_type& val) insert(iterator position, size_type n, const value_type& val) insert(iterator position, InputIterator first, InputIterator last)	// Insert elements (public member function)
+erase(iterator position) erase(iterator first, iterator last)	// Erase elements (public member function)
+swap(vector& x)	// Swap content (public member function)
+clear() // Clear content (public member function)
+emplace(const_iterator position, Args&&... args)	// Construct and insert element (public member function)
+emplace_back(Args&&... args)	// Construct and insert element at the end (public member function)
 ```
 
 #### `std::string` :
